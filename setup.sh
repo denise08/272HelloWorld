@@ -1,3 +1,4 @@
+# Build docker images
 cd hello
 docker build -t hello .
 cd ..
@@ -10,25 +11,19 @@ cd helloworld
 docker build -t helloworld .
 cd ..
 
-# assumes that minikube has been added to PATH
-# if not
-# windows
-# PATH=C:\Program Files\Kubernetes\Minikube;%path%
+# Assumes that minikube has been added to PATH
 minikube start
 
-# windows - please dont use windows
-# @FOR /f "tokens=*" %i IN ('minikube -p minikube docker-env --shell cmd') DO @%i
 eval $(minikube -p minikube docker-env)
 
-
-
+# Load images on minikube
 minikube image load hello:latest
 
 minikube image load world:latest
 
 minikube image load helloworld:latest
 
-
+# Configure minikube services
 cd hello
 kubectl apply -f hello.yaml
 kubectl apply -f hello-service.yaml
@@ -46,4 +41,5 @@ cd ..
 
 sleep 30
 
+# Start helloworld application
 minikube service helloworld-service
