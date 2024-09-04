@@ -19,3 +19,4 @@ This application uses the following (at the minimum):
 ### Other Notes:
 - The above steps should be ran on a **CLEAN** build. (i.e. no previous instances of the application's docker containers, images, minikube clusters)
 - The IP addresses used in helloworld.py are hardcoded, assuming that those are given when the hello and world microservices were deployed separately.
+- Link to DockerHub repo containing the images: https://hub.docker.com/r/denisegip/cmpe272
